@@ -3,7 +3,7 @@
     <h1>Todo List with Vuejs</h1>
     <TodoInput @addTodo="addTodo($event)" />
 
-    <TodoList :todos="todos" @todoDone="todoDone($event)" @delTodo="delTodo($event)"/>
+    <TodoList :todos="todos" @todo-done="todoDone($event)" @del-todo="delTodo($event)"/>
   </div>
 </template>
 
@@ -23,18 +23,25 @@ export default {
       todos : [
         {
           title : 'workout',
+          details : 'lorem lorem ,aknfkankanklnanklanflk' ,
           done : false 
         },
         {
           title : 'read book',
+          details : 'lorem lorem ,aknfkankanklnanklanflk' ,
+
           done : true 
         },
         {
           title : 'study',
+          details : 'lorem lorem ,aknfkankanklnanklanflk' ,
+
           done : false 
         },
         {
           title : 'sleep',
+          details : 'lorem lorem ,aknfkankanklnanklanflk' ,
+
           done : false 
         }
       ]
