@@ -13,7 +13,7 @@
 export default {
     data () {
         return {
-            newTodo : '',
+            newTodo :'',
             err : ''
         }
     },
@@ -21,6 +21,7 @@ export default {
         addTodo() {
             if(this.newTodo) {
                 this.$emit('addTodo' , this.newTodo)
+                this.newTodo = ''
                 
             }else {
                 this.err = 'emty field !'

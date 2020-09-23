@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Todo List with Vuejs</h1>
-    <TodoInput  />
+    <TodoInput @addTodo="addTodo($event)" />
 
     <TodoList :todos="todos"/>
   </div>
@@ -19,6 +19,7 @@ export default {
   },
   data() {
     return {
+      
       todos : [
         {
           title : 'workout',
@@ -38,7 +39,18 @@ export default {
         }
       ]
     }
-  }
+  },
+  methods: {
+    addTodo(payload){
+      console.log(payload)
+      const newTodo = {
+        title : payload,
+        done : false 
+      }
+      this.todos.push(newTodo)
+      console.log(newTodo)
+    }
+  },
 }
 </script>
 
