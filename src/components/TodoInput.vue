@@ -1,9 +1,7 @@
 <template>
     <div id="TodoInput">
-            <div class="form">
                 <input type="text" v-model="newTodo" @keydown="typingTodo">
-                <button @click="addTodo">add</button>
-            </div>
+                <button class="btn btn-primary" @click="addTodo">add</button>
             <div class="err" v-if="err">{{err}}</div>
        
     </div>
@@ -27,6 +25,7 @@ export default {
                 
             }else {
                 this.err = 'emty field !'
+                
             }
         },
         typingTodo(){
@@ -42,25 +41,17 @@ export default {
 <style scoped>
     #TodoInput {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: center;
-        position: relative;
-        margin: 2rem 0 ;
-
-    }
-
-    .form {
-        flex: 1;
-        width: 100%;
         max-width: 350px;
 
-        margin: 0 auto;
         display: flex;
+        
+        position: relative;
+        margin: 2rem auto;
         justify-content: space-between;
         
     }
+
+
     .err {
         padding: 0.5rem 1rem;
         width: 100px;
@@ -68,15 +59,16 @@ export default {
         color: white;
         border-radius: 5px;
         position: absolute;
-        right: -80px;     
+        left : calc(50% - 50px);
         height: 1.5rem;
         
  
 
     }
-    .form input {
+    input {
         flex: 0.8;
         padding: 0.5rem 1rem;
+
         outline: none;
         border: none;
         background-color: rgb(238, 238, 238);
@@ -86,7 +78,7 @@ export default {
 
         
     }
-    .form button {
+    button {
         flex: 0.15;
         padding: 0.5rem;
         border-radius: 5px;

@@ -3,7 +3,7 @@
     <h1>Todo List with Vuejs</h1>
     <TodoInput @addTodo="addTodo($event)" />
 
-    <TodoList :todos="todos"/>
+    <TodoList :todos="todos" @todoDone="todoDone($event)" @delTodo="delTodo($event)"/>
   </div>
 </template>
 
@@ -49,6 +49,20 @@ export default {
       }
       this.todos.push(newTodo)
       console.log(newTodo)
+    },
+    todoDone(payload){
+      
+      this.todos.map( (todo) => {
+        if (todo == payload) {
+          todo.done = !todo.done
+        }
+      })
+      
+    },
+    delTodo(payload){
+      
+      this.todos = this.todos.filter(todo => todo != payload)
+      
     }
   },
 }
@@ -67,4 +81,32 @@ export default {
   
 
 }
+
+    .btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        box-shadow: 0 0 3px rgb(223, 223, 223);
+    }
+    .btn-sucess {
+        background: rgb(45, 177, 40);
+        color:rgb(216, 231, 218) ;
+    }
+        .btn-primary {
+        background: rgb(7, 75, 202);
+        color:rgb(216, 231, 218) ;
+    }
+    .btn:hover {
+        transform: scale(1.03);
+        cursor: pointer;
+        color: white;
+
+    }
+
+        .btn-danger {
+        background: rgb(192, 73, 73);
+        color:rgb(216, 231, 218) ;
+    }
+
 </style>

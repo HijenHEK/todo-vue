@@ -4,8 +4,9 @@
             {{todo.title}}
         </div>
         <div class="controls">
-            <button class="btn btn-sucess" v-if="!todo.done">done ?</button>
-             <button class="btn btn-danger"> delete </button>
+            <button class="btn btn-sucess" v-if="!todo.done" @click="todoDone(todo)">done ?</button>
+            <button class="btn btn-primary" v-if="todo.done" @click="todoDone(todo)">not done ?</button>
+             <button class="btn btn-danger" @click="delTodo(todo)"> delete </button>
         </div>
     </div>
 </template>
@@ -13,7 +14,15 @@
 
 <script>
 export default {
-    props : ['todo']
+    props : ['todo'],
+    methods : {
+        todoDone(todo){
+            this.$emit('todoDone' , todo) ;
+        },
+        delTodo(todo){
+            this.$emit('delTodo' , todo) ;
+        }
+    }
 }
 </script>
 
@@ -42,26 +51,5 @@ export default {
     .controls > .btn:last-child {
         margin-left: 0.5rem ;
     }
-    .btn {
-        padding: 0.5rem 1rem;
-        border: none;
-        border-radius: 5px;
-        box-shadow: 0 0 3px rgb(223, 223, 223);
-    }
-    .btn-sucess {
-        background: rgb(45, 177, 40);
-        color:rgb(216, 231, 218) ;
-    }
-    .btn-sucess:hover {
-        background: rgb(45, 177, 40);
-        color: white;
-    }
-        .btn-danger {
-        background: rgb(192, 73, 73);
-        color:rgb(216, 231, 218) ;
-    }
-    .btn-danger:hover {
-        background: rgb(192, 73, 73);
-        color: white;
-    }
+
 </style>
