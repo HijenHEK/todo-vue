@@ -1,5 +1,11 @@
 # todo-vue
 
+
+## description 
+
+This project was part of my vue learning journey its a todo list using vue js
+
+
 ## Project setup
 ```
 npm install
